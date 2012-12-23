@@ -2,7 +2,10 @@
 
 from cumulus.engine import Cumulus
 application = Cumulus({
-	'urls': [],
+	'urls': [
+		('^/?$', 'main.home'),
+		('^/upload/?$', 'upload.index')
+	],
 	'db': {
 		'location': 'mysql://localhost/pkm',
 		'username': 'headcrabtan',
