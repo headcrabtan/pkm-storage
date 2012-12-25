@@ -1,0 +1,67 @@
+{# 
+
+	base.html
+	designed by Raon Park
+
+	using html5, css3 with jQuery
+
+#}
+
+{% include "include/macro.html" %}
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>pkmstorage :: 메뉴이름</title>
+
+		<link rel="stylesheet" type="text/css" href="/pkm/static/css/style.css">
+
+		<script type="application/javascript" src="/pkm/static/js/jquery.1.8.2.js"></script>
+		<script type="application/javascript" src="/pkm/static/js/jquery.mediaquery.js"></script>
+		<script type="application/javascript" src="/pkm/static/js/jquery.slider.js"></script>
+
+		<script type="application/javascript">
+			{% block script %}{% endblock %}
+		</script>
+	</head>
+	<body>
+		<header>
+			<div class="wrap">
+				<div class="relative">
+					<div class="logo">
+						<a href="/pkm">
+							로고나 만들어
+						</a>
+					</div>
+					<nav>
+						<menu class="menu">
+							<li>
+								<a href="/pkm/home">홈</a>
+							</li>
+							<li>
+								<a href="/pkm/upload">업로드</a>
+							</li>
+						</menu>
+					</nav>
+					<div class="login">
+						로그인
+					</div>
+				</div>
+			</div>
+		</header>
+		<article class="wrap">
+			{% block content %}{% endblock %}
+		</article>
+		<footer class="wrap">
+			<div class="creators">
+				<b>pkm 분석</b> 헤드
+				<b>서버</b> 유성매직
+				<b>디자인</b> 라온
+			</div>
+			<div class="copyright">
+				copyright &copy; 2012 ~ <b>pkmstorage</b>. all rights reserved.
+			</div>
+		</footer>
+	</body>
+</html>
