@@ -3,7 +3,9 @@
 from cumulus.engine import Cumulus
 application = Cumulus({
 	'urls': [
-		('^/?$', 'main.home'),
+		('^/(home)?$', 'main.home'),
+		('^/login/?$', 'main.login'),
+		('^/logout/?$', 'main.logout'),
 		('^/upload/?$', 'upload.index')
 	],
 	'db': {
@@ -17,5 +19,12 @@ application = Cumulus({
 		'prefix': '/pkm/',
 		'static': 'InternalStatic'
 	},
-	'error': { 'debug': True }
+	'error': {
+		'debug': True,
+		'template': 'error/default.html'
+	},
+	'status': {
+		404: ['Not Found', 'URL에 해당하는 페이지 또는 자원을 찾을 수 없습니다.'],
+		500: ['Internal Server Error', '내부 오류가 발생했습니다.']
+	}
 }).WSGIApp

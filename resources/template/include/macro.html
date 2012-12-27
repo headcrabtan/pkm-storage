@@ -1,0 +1,68 @@
+{# 
+	macros (included in base.html)
+	by Raon Park
+
+	defining the macros and giving description of the macros
+#}
+
+{#
+	button(value, id)
+
+	parameter:
+	value : the button's display text (ex. 계속)
+	id : the button's id
+#}
+{% macro button(value, id) -%}
+<input type="button" value="{{ value }}" id="{{ id }}" class="btn">
+{%- endmacro %}
+
+{#
+	submit(value, class)
+
+	parameter:
+	value : the button's display text (ex. 로그인)
+	class : the button's class
+#}
+{% macro submit(value, class) -%}
+<input type="submit" value="{{ value }}" class="{{ class }}">
+{%- endmacro %}
+
+{#
+	ul(class, liList, selected)
+
+	parameter:
+	class : the class of the ul
+	liList : the values inside the li, type "list". [['menu1', 'link1'], ['menu2', 'link2']]
+	selected : selected menu name. (ex. menu1) defVal: ""
+#}
+{% macro ul(class, liList, selected="") -%}
+<ul class="{{ class }}">
+	{% for liVal in liList %}
+	<li {% if liVal[0] == selected %}class="selected"{% endif %}>
+		<a href="{{ liVal[1] }}">
+			{{ liVal[0] }}
+		</a>
+	</li>
+	{% endfor %}
+</ul>
+{%- endmacro %}
+
+{#
+	menu(class, liDict, selected)
+
+	parameter:
+	class : the class of the menu
+	liDict : the values inside the li, type "list". [['menu1', 'link1'], ['menu2', 'link2']]
+	selected : selected menu name. (ex. menu1) defVal: ""
+#}
+{% macro menu(class, liDict, selected="") -%}
+<menu class="{{ class }}">
+	{% for key, val in liDict.items() %}
+	<li>
+		<a href="/pkm{{ val }}" {% if key == selected %}class="selected"{% endif %}>
+			{{ key }}
+		</a>
+	</li>
+	{% endfor %}
+</menu>
+{%- endmacro %}
