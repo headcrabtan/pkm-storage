@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/pkm/login" method="post">
+	<input type="text" name="Id">
+	<input type="password" name="Pw">
+	{{ csrf_token_input }}
+	<input type="submit" value="로구잉">
+</form>
+{% endblock %}

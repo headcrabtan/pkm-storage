@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+{{ UploadResult }}
+
+<form action="/pkm/upload" method="post" enctype="multipart/form-data">
+	<input type="file" name="Pkm">
+	<input type="checkbox" name="Secret"><br>
+  {{ csrf_token_input }}
+  <input type="submit" value="업로드">
+</form>
+{% endblock %}
