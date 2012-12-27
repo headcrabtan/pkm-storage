@@ -7,7 +7,7 @@
 
 #}
 
-{% include "include/macro.html" %}
+{% import "include/macro.html" as macro %}
 
 <!doctype html>
 <html>
@@ -24,6 +24,18 @@
 		<script type="application/javascript">
 			{% block script %}{% endblock %}
 		</script>
+
+		<script type="application/javascript">
+			jQuery(function($){
+				$('.login input').focus(function(){
+					$('.login').addClass('selected');
+				})
+
+				$('.login input').blur(function(){
+					$('.login').removeClass('selected');
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<header>
@@ -35,17 +47,15 @@
 						</a>
 					</div>
 					<nav>
-						<menu class="menu">
-							<li>
-								<a href="/pkm/home">홈</a>
-							</li>
-							<li>
-								<a href="/pkm/upload">업로드</a>
-							</li>
-						</menu>
+						{{ macro.menu("menu", Menu, ActiveMenu) }}
 					</nav>
 					<div class="login">
-						로그인
+						<form action="/pkm/login" method="post">
+							<input type="text" name="Id" class="loginTb" placeholder="아이디">
+							<input type="password" name="Pw" class="loginTb" placeholder="비밀번호">
+							{{ csrf_token_input }}
+							{{ macro.submit('로그인', 'loginBtn') }}
+						</form>
 					</div>
 				</div>
 			</div>

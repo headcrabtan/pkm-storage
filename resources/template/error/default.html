@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>pkmstorage :: 404</title>
+
+		<style type="text/css">
+			html, body {
+				margin: 0; padding: 0;
+				width: 100%; height: 100%;
+			}
+
+			body {
+				background-color: #e2e2e2;
+				font-family: "돋움", "나눔고딕", "NanumGothic", "맑은 고딕", sans-serif;
+			}
+
+			.top {
+				position: relative;
+				width: 100%; height: 30%; background: #194882;
+			}
+
+			.code {
+				position: absolute;
+				left: 10%; bottom: 0;
+				color: #FFFFFF;
+				font-family: "Georgia", "Segoe UI", "Ubuntu", "AppleGothic", sans-serif;
+				font-size: 60px; font-weight: "bold";
+			}
+
+			.bottom {
+				margin: 0 10%; margin-top: 20px;
+			}
+
+			.sorry {
+				margin-bottom: 10px;
+			}
+
+			.link {
+				font-weight: bold;
+			}
+			.link a {
+				color: rgba(25, 72, 130, .75); text-decoration: none;
+			}
+			.link a:hover {
+				color: #194882;
+			}
+		</style>
+
+		<script type="application/javascript" src="{{ static }}/CumulusBuiltins/jquery.js"></script>
+		<script type="application/javascript">
+			jQuery(function($){
+				$('.debug').click(function(){
+					$('.traceback').slideToggle();
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="top">
+			<div class="code">
+				{{ msg['readable'] }}
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="sorry">
+				죄송합니다. {{ msg['explain'] }}
+			</div>
+			<div class="link">
+				<a href="/pkm" style="margin-right: 5px;">홈으로</a> {% if traceback %}<a href="#" class="debug">디버그 정보 보기</a>{% endif %}
+			</div>
+			<div class="trackback">
+				{% if traceback -%}
+					<pre id="traceback" class="brush: py; first-line: {{ traceback['line'][0]-3 }}; highlight: [{{ traceback['line'][1] }}];">
+						# File : {{ traceback['filepath'] }}
+						# {{ traceback['detail'] }}
+
+						{% for line in traceback['file'] %}{{ line }}{% endfor -%}
+					</pre>
+				{%- endif %}
+			</div>
+		</div>
+	</body>
+</html>

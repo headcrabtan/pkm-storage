@@ -17,14 +17,14 @@
 {%- endmacro %}
 
 {#
-	submit(value, id)
+	submit(value, class)
 
 	parameter:
 	value : the button's display text (ex. 로그인)
-	id : the button's id
+	class : the button's class
 #}
-{% macro submit(value, id) -%}
-<input type="submit" value="{{ value }}" id="{{ id }}" class="btn">
+{% macro submit(value, class) -%}
+<input type="submit" value="{{ value }}" class="{{ class }}">
 {%- endmacro %}
 
 {#
@@ -48,19 +48,19 @@
 {%- endmacro %}
 
 {#
-	menu(class, liList, selected)
+	menu(class, liDict, selected)
 
 	parameter:
 	class : the class of the menu
-	liList : the values inside the li, type "list". [['menu1', 'link1'], ['menu2', 'link2']]
+	liDict : the values inside the li, type "list". [['menu1', 'link1'], ['menu2', 'link2']]
 	selected : selected menu name. (ex. menu1) defVal: ""
 #}
-{% macro ul(class, liList, selected="") -%}
+{% macro menu(class, liDict, selected="") -%}
 <menu class="{{ class }}">
-	{% for liVal in liList %}
-	<li {% if liVal[0] == selected %}class="selected"{% endif %}>
-		<a href="{{ liVal[1] }}">
-			{{ liVal[0] }}
+	{% for key, val in liDict.items() %}
+	<li>
+		<a href="/pkm{{ val }}" {% if key == selected %}class="selected"{% endif %}>
+			{{ key }}
 		</a>
 	</li>
 	{% endfor %}

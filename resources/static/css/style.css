@@ -52,6 +52,9 @@ table {
 label {
 	cursor: pointer;
 }
+input {
+    font-family: "돋움", "나눔고딕", "NanumGothic", "맑은 고딕", sans-serif;
+}
 input[type=checkbox] {
 	margin: 0;
 }
@@ -83,11 +86,11 @@ header {
 }
 
 header .logo {
-	margin-right: 15px; padding: 16px 0;
+	margin-right: 20px; padding: 16px 0;
 	float: left;
 	font-weight: bold;
 }
-header .logo a { color: #FFFFFF; }
+header a { color: #FFFFFF; }
 
 header menu {
 	display: block;
@@ -98,12 +101,34 @@ header menu li {
 header menu li a {
 	display: block;
 	color: #FFFFFF; text-decoration: none;
-	padding: 16px 10px;
+	padding: 16px;
+    transition: .3s; -moz-transition: .3s; -webkit-transition: .3s; -o-transition: .3s;
+}
+header menu li a:hover, header menu li a.selected {
+    color: #194882; background: #FFFFFF;
 }
 
 header .login {
-	position: absolute; padding: 16px 0;
+	position: absolute; padding: 13px 15px 12px 15px;
 	right: 0;
+    transition: .3s; -moz-transition: .3s; -webkit-transition: .3s; -o-transition: .3s;
+}
+header .login.selected {
+    background: white;
+}
+.loginTb {
+    margin: 0; padding: 2px; outline: none; font-size: 12px;
+    background: none; border: none; border-bottom: 1px solid #4167A7;
+}
+.selected .loginTb {
+    border-bottom: 1px solid #194882; color: #194882;
+}
+header .login input::-webkit-input-placeholder {
+    color: #4167A7;
+}
+.loginBtn {
+    margin: 0; margin-left: 5px; padding: 0; background: none; border: none;
+    color: #4167A7; cursor: pointer; font-weight: bold; font-size: 12px;
 }
 
 /* content */
@@ -122,7 +147,6 @@ header .login {
 .row > .right {
 	float: right;
 }
-
 .shadow {
 	box-shadow: 0 0 15px rgba(0, 0, 0, .15);
 }
@@ -132,7 +156,7 @@ header .login {
 	padding: 15px;
 }
 .bg .title {
-	margin-bottom: 7px;
+	margin-bottom: 10px;
 	font-size: 14px; font-weight: bold; color: #1f5aa3;
 }
 .bg .content {
@@ -146,7 +170,6 @@ header .login {
 	padding: 15px;
 	position: absolute;
 	left: 0; right: 0; bottom: 0;
-	height: 40px; 
 	background: rgba(0, 0, 0, .7);
 }
 .slider .description > .title {
