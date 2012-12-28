@@ -59,7 +59,7 @@
 <menu class="{{ class }}">
 	{% for key, val in liDict.items() %}
 	<li>
-		<a href="/pkm{{ val }}" {% if key == selected %}class="selected"{% endif %}>
+		<a href="{{ val }}" {% if key == selected %}class="selected"{% endif %}>
 			{{ key }}
 		</a>
 	</li>

@@ -19,7 +19,7 @@ def home(seq):
 
 def login(seq):
 	if seq.req.session.get('uid'):
-		return MakeResp('redirect', '/pkm/')
+		return MakeResp('redirect', '/')
 
 	context['LoginError'] = None
 
@@ -37,7 +37,7 @@ def login(seq):
 			)
 
 			if len(select) == 1:
-				resp = MakeResp('redirect', '/pkm/')
+				resp = MakeResp('redirect', '/')
 				resp['header']['session'] = {
 					'uid': uid,
 					'img': select[0]['img']
@@ -53,6 +53,6 @@ def login(seq):
 	return render('login.html', context)
 
 def logout(seq):
-	resp = MakeResp('redirect', '/pkm/')
+	resp = MakeResp('redirect', '/')
 	resp['header']['session'] = None
 	return resp

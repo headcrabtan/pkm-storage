@@ -8,7 +8,7 @@ context = { 'Menu': menu, 'ActiveMenu': None }
 
 def index(seq):
 	uid = seq.req.session.get('uid')
-	if not uid: return MakeResp('redirect', '/pkm/login')
+	if not uid: return MakeResp('redirect', '/login')
 
 	context['ActiveMenu'] = '업로드'
 	context['UploadResult'] = None

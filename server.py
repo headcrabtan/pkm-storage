@@ -15,10 +15,7 @@ application = Cumulus({
 	},
 	'server': { 'KeyPhrase': 'Za2A?haT-q6gudR?7!SE7%p#' },
 	'path': { 'AppRoot': '/srv/private/headcrabtan/pkm' },
-	'builtins': {
-		'prefix': '/pkm/',
-		'static': 'InternalStatic'
-	},
+	'builtins': { 'static': 'InternalStatic' },
 	'error': {
 		'debug': True,
 		'template': 'error/default.html'

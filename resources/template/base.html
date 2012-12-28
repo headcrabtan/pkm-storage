@@ -15,11 +15,11 @@
 		<meta charset="UTF-8">
 		<title>pkmstorage :: 메뉴이름</title>
 
-		<link rel="stylesheet" type="text/css" href="/pkm/static/css/style.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css">
 
-		<script type="application/javascript" src="/pkm/static/js/jquery.1.8.2.js"></script>
-		<script type="application/javascript" src="/pkm/static/js/jquery.mediaquery.js"></script>
-		<script type="application/javascript" src="/pkm/static/js/jquery.slider.js"></script>
+		<script type="application/javascript" src="/static/js/jquery.1.8.2.js"></script>
+		<script type="application/javascript" src="/static/js/jquery.mediaquery.js"></script>
+		<script type="application/javascript" src="/static/js/jquery.slider.js"></script>
 
 		<script type="application/javascript">
 			{% block script %}{% endblock %}
@@ -42,7 +42,7 @@
 			<div class="wrap">
 				<div class="relative">
 					<div class="logo">
-						<a href="/pkm">
+						<a href="/">
 							로고나 만들어
 						</a>
 					</div>
@@ -50,7 +50,7 @@
 						{{ macro.menu("menu", Menu, ActiveMenu) }}
 					</nav>
 					<div class="login">
-						<form action="/pkm/login" method="post">
+						<form action="/login" method="post">
 							<input type="text" name="Id" class="loginTb" placeholder="아이디">
 							<input type="password" name="Pw" class="loginTb" placeholder="비밀번호">
 							{{ csrf_token_input }}
